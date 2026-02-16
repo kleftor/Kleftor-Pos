@@ -33,16 +33,16 @@ test('user can update the profile', function () {
     $user = User::first();
 
     $response = actingAs($user)->putJson('/api/auth/me', [
-        'name' => 'John Doe',
-        'email' => 'updated@mail.com',
+        'name' => 'John Arthur',
+        'email' => 'johnsgraphicx@gmail.com',
     ]);
 
     $response->assertOk()
         ->assertJsonPath('message', 'Profile updated successfully');
 
     $this->assertDatabaseHas('users', [
-        'name' => 'John Doe',
-        'email' => 'updated@mail.com',
+        'name' => 'John Arthur',
+        'email' => 'johnsgraphicx@gmail.com',
     ]);
 });
 
@@ -50,8 +50,8 @@ test('user can update the profile with photo', function () {
     $user = User::first();
 
     $response = actingAs($user)->putJson('/api/auth/me', [
-        'name' => 'John Doe',
-        'email' => 'updated@mail.com',
+        'name' => 'John Arthur',
+        'email' => 'johnsgraphicx@gmail.com',
         // 'photo_url' => 'https://picsum.photos/200.jpg',
     ]);
 
